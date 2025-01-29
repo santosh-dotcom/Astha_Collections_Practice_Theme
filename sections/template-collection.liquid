@@ -5,27 +5,7 @@
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {% for product in collection.products %}
-                    <div class="w-full py-6 px-3">
-                        <div class="border bg-white shadow-lg rounded-lg overflow-hidden">
-                            <a href="{{ product.url }}">
-                                {% if product.featured_image %}
-                                    <div class="h-60 overflow-hidden">
-                                        {{ product.featured_image | image_url: '600x600' | img_tag: 'w-full h-full overflow-hidden' }}
-                                    </div>
-                                    {% else %}
-                                        {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100'}}
-                                {% endif %}
-                            </a>
-
-                            <div class="flex flex-col p-4">
-                                <span class="text-sm">{{ product.vendor }}</span>
-                                <a href="{{ product.url }}" class="text-gray-700 uppercase font-medium">{{ product.title }}</a>
-                                <p class="text-gray-500">{{ product.price |  money }}</p>
-                            </div>
-                            
-                            
-                        </div>
-                    </div>
+                    {% render 'product-cart', product_product: product %}
                         
                         {% else %}
                             <p>There are no products inside of this collection</p>
@@ -39,3 +19,16 @@
     {% endpaginate %}
 </div>
 
+{% schema %}
+    {
+        "name": "Template Collection",
+        "settings": [
+            {
+                "type": "number",
+                "id": "number_of_products_per_page",
+                "default": 6,
+                "label":"Number of Products per page"
+            }
+        ]
+    }
+{% endschema %}
