@@ -776,6 +776,10 @@ video {
   max-width: 28rem;
 }
 
+.max-w-6 {
+  max-width: 1.5rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1297,6 +1301,10 @@ video {
     display: flex;
   }
 
+  .md\:grid {
+    display: grid;
+  }
+
   .md\:hidden {
     display: none;
   }
@@ -1327,6 +1335,10 @@ video {
 
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .md\:flex-row {
