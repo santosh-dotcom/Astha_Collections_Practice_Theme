@@ -1,0 +1,8 @@
+{
+    "setting" : {
+        "template": {
+            "name": "template-list-collections"
+        }
+    },
+    "order": ["template"]
+}
